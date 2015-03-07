@@ -25,6 +25,8 @@ app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser()); // get information from html forms
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // required for passport
 app.use(session({ secret: 'harsharsharsharsharsha' })); // session secret

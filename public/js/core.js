@@ -1,7 +1,7 @@
 'use strict';
 
 var taskLists = angular.module('taskListApp', ['ngRoute', 
-                                'authenticateController', 'authenticateService']);
+                                'authenticationController', 'authenticationService']);
 
 taskLists.config(['$routeProvider', 
                function($routeProvider){
@@ -10,19 +10,19 @@ taskLists.config(['$routeProvider',
                    $routeProvider
                         .when('/', {
                             templateUrl : 'views/home.html',
-                            controller : 'authenticateController'
+                            controller : 'authenticationController'
                         })
                         .when('/login', {
                             templateUrl : 'views/login.html',
-                            controller : 'authenticateController'
+                            controller : 'authenticationController'
                         })
                         .when('/signup', {
                             templateUrl : 'views/signup.html',
-                            controller : 'authenticateController'
+                            controller : 'authenticationController'
                         })
                         .when('/profile', {
                             templateUrl : 'views/profile.html',
-                            controller : 'authenticateController'
+                            controller : 'authenticationController'
                         })
                         .otherwise({
                             redirectTo : '/'
