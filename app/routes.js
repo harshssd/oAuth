@@ -1,17 +1,4 @@
 module.exports = function(app, passport) {
-
-//    // process the signup form
-//    app.post('/api/signup', passport.authenticate('local-signup', {}),
-//             function (err, user) {
-//                    if(err)
-//                        res.send(err);
-//                    console.log(user);
-//                    res.json(user);
-//            });
-    
-    app.post('/api/signin', function(req, res){
-        res.json({message : 'This is a message'});
-    });
     
     // process the signup form
     app.post('/api/signup', function(req, res) {
@@ -50,7 +37,23 @@ module.exports = function(app, passport) {
                     })(req, res);
                 }
             );
+
+    app.get('/home', function(){
+        res.redirectTo('#/profile');
+    })
     
+    // =====================================
+    // FACEBOOK ROUTES =====================
+    // =====================================
+    // route for facebook authentication and login
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    // handle the callback after facebook has authenticated the user
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect : '/home',
+            failureRedirect : '/'
+        }));
     
     
     // route for logging out
