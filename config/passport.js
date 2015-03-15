@@ -41,7 +41,7 @@ module.exports = function(passport) {
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, res, email, password, done) {
+    function(req, email, password, done) {
         console.log('signup route started in passport');
         // asynchronous
         // User.findOne wont fire unless data is sent back

@@ -37,10 +37,6 @@ module.exports = function(app, passport) {
                     })(req, res);
                 }
             );
-
-    app.get('/home', function(){
-        res.redirectTo('#/profile');
-    })
     
     // =====================================
     // FACEBOOK ROUTES =====================
@@ -51,7 +47,7 @@ module.exports = function(app, passport) {
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            successRedirect : '/home',
+            successRedirect : '/#profile',
             failureRedirect : '/'
         }));
     
