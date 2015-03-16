@@ -13,6 +13,7 @@ angular.module('authenticationController', [])
                         $scope.message = returnedValue.message;
                     else{
                         $scope.message = '';
+                        $scope.user = returnedValue;
                         alert('user created ' + returnedValue.local.email);
                         $location.path('/profile');
                     }
@@ -27,6 +28,7 @@ angular.module('authenticationController', [])
                         $scope.message = returnedValue.message;
                     else{
                         $scope.message = '';
+                        $scope.user = returnedValue;
                         alert('user logged in ' + returnedValue.local.email);
                         $location.path('/profile');
                     }

@@ -5,7 +5,6 @@ var taskLists = angular.module('taskListApp', ['ngRoute',
 
 taskLists.config(['$routeProvider', 
                function($routeProvider){
-//                   console.log('inside routes');
 //                   $locationProvider.html5Mode(true);
                    $routeProvider
                         .when('/', {
